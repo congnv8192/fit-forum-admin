@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/fit-forum-admin/static/css/main.cdbc6198.chunk.css",
-    "main.js": "/fit-forum-admin/static/js/main.d12f4113.chunk.js",
-    "main.js.map": "/fit-forum-admin/static/js/main.d12f4113.chunk.js.map",
+    "main.js": "/fit-forum-admin/static/js/main.d1924088.chunk.js",
+    "main.js.map": "/fit-forum-admin/static/js/main.d1924088.chunk.js.map",
     "runtime-main.js": "/fit-forum-admin/static/js/runtime-main.5f9fa5a5.js",
     "runtime-main.js.map": "/fit-forum-admin/static/js/runtime-main.5f9fa5a5.js.map",
     "static/js/2.53dc2ef5.chunk.js": "/fit-forum-admin/static/js/2.53dc2ef5.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.5f9fa5a5.js",
     "static/js/2.53dc2ef5.chunk.js",
     "static/css/main.cdbc6198.chunk.css",
-    "static/js/main.d12f4113.chunk.js"
+    "static/js/main.d1924088.chunk.js"
   ]
 }
