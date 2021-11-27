@@ -1,0 +1,104 @@
+import React from "react";
+import { Link, useParams } from "react-router-dom";
+import FormInput from "../../components/form-input/FormInput";
+import UserUtils from "../../utils/UserUtils";
+
+export default class UserEditPage extends React.Component {
+    constructor(props) {
+        super(props); 
+
+        // id
+        const paths = window.location.pathname.split("/");
+        const _id = paths[2];
+
+        this.state = {
+            _id,
+            username: '',
+            displayName: '',
+            avatar: ''
+        };
+    }
+
+    async componentDidMount() {
+        // get user details
+        const user = await UserUtils.getById(this.state._id);
+        if (!user) {
+            window.location.replace("/users");
+        }
+
+        this.setState({...user});
+    }
+
+    handleChange = (event) => {
+        // const input = event.currentTarget;
+        // const name = input.name; // username
+        // const value = input.value;
+
+        const { name, value } = event.currentTarget;
+        
+        this.setState({ [name] : value });
+    }
+
+    handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const success = await UserUtils.update(this.state._id, this.state);
+
+        if (success) {
+            alert("Updated successfully!");
+
+            window.location.replace("/users");
+        } else {
+            alert("Invalid data! Please try again later.");
+        }
+    }
+
+    render() {
+        return <>
+            <h3><i className="fa fa-angle-right"></i> Edit user</h3>
+            <div className="text-right">
+                <Link to="/users" className="btn btn-primary">
+                    <i className="fa fa-reply"></i> All users
+                </Link>
+            </div>
+            <div className="row mt">
+                <div className="form-panel">
+                <h4 className="mb"><i className="fa fa-angle-right"></i> User details</h4>
+
+                <form 
+                    className="form-horizontal style-form" 
+                    onSubmit={ this.handleSubmit }
+                >
+                    
+                    <FormInput 
+                        label="Username"
+                        name="username"
+                        value={ this.state.username } 
+                        onChange= { this.handleChange }
+                    />
+
+                    <FormInput 
+                        label="Display name"
+                        name="displayName"
+                        value={ this.state.displayName } 
+                        onChange= { this.handleChange }
+                    />
+
+                    <FormInput 
+                        label="Avatar link"
+                        name="avatar"
+                        value={ this.state.avatar } 
+                        onChange= { this.handleChange }
+                    />
+                    
+                    <div className="text-right">
+                        <button type="submit" className="btn btn-theme">
+                            <i className="fa fa-save" /> Save
+                        </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </>;
+    }
+}

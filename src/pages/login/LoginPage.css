@@ -1,0 +1,7 @@
+.backstretch {
+    left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 100vh; width: 1903px; z-index: -999999; position: fixed;
+}
+
+.backstretch img {
+    position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1903px; height: 1268.91px; max-width: none; z-index: -999999; left: 0px; top: -209.957px;
+}
